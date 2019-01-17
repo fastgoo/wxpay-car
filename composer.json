@@ -1,0 +1,30 @@
+{
+  "name": "fastgoo/wxpay-car",
+  "type": "library",
+  "description": "微信支付 车主平台API接口SDK，主要对接停车这块的相关业务",
+  "keywords": [
+    "wx",
+    "pay",
+    "carpay",
+    "autopay"
+  ],
+  "homepage": "https://github.com/fastgoo",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mr.Zhou",
+      "email": "773729704@qq.com",
+      "homepage": "https://github.com/fastgoo"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "guzzlehttp/guzzle": "^6.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "CarPay\\": "src/"
+    }
+  }
+}
+
