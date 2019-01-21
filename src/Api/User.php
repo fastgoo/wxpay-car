@@ -91,7 +91,7 @@ class  User
      * @param string $highWayType
      * @return array
      */
-    public function getAuthSign(string $openid, string $plateNumber, string $highWayType = ''): array
+    public function getAuthSign(string $openid, string $plateNumber = '', string $highWayType = ''): array
     {
         $req = $this->createParams();
         $highWayType && $req['channel_type'] = $highWayType;
