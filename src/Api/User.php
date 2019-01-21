@@ -100,7 +100,9 @@ class  User
             $req['sub_openid'] = $openid;
             unset($req['openid']);
         }
-        $req['plate_number'] = $plateNumber;
+        if ($plateNumber) {
+            $req['plate_number'] = $plateNumber;
+        }
         $req['sign'] = Sign::make($req, $this->config['key'], $this->config['sign_type']);
         unset($req['version'], $req['jump_scene']);
         return $req;
