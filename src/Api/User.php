@@ -68,6 +68,21 @@ class  User
     }
 
     /**
+     * 获取用户状态信息
+     * @param string $plateNumber
+     * @return array
+     * @throws CarPayException
+     */
+    public function getStateInfo(string $plateNumber): array
+    {
+        $req = $this->createParams();
+        $req['plate_number'] = $plateNumber;
+        $req['sign'] = Sign::make($req, $this->config['key'], $this->config['sign_type']);
+        $res = Tool::post(ApiUrl::QUERY_USER_STATUS, $req);
+        return $res;
+    }
+
+    /**
      * 获取授权信息接口
      * 服务商参考文档：https://pay.weixin.qq.com/wiki/doc/api/pap_sl_jt_v2.php?chapter=20_932&index=10
      * 普通商家参考文档：https://pay.weixin.qq.com/wiki/doc/api/pap_jt_v2.php?chapter=20_93&index=10
