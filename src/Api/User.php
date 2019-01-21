@@ -94,6 +94,7 @@ class  User
     public function getAuthSign(string $openid, string $plateNumber = '', string $highWayType = ''): array
     {
         $req = $this->createParams();
+        unset($req['version'], $req['jump_scene']);
         $highWayType && $req['channel_type'] = $highWayType;
         $req['openid'] = $openid;
         if ($this->config['sub_appid']) {
@@ -104,7 +105,6 @@ class  User
             $req['plate_number'] = $plateNumber;
         }
         $req['sign'] = Sign::make($req, $this->config['key'], $this->config['sign_type']);
-        unset($req['version'], $req['jump_scene']);
         return $req;
     }
 
