@@ -98,6 +98,7 @@ class  User
         $req['openid'] = $openid;
         if ($this->config['sub_appid']) {
             $req['sub_openid'] = $openid;
+            unset($req['openid']);
         }
         $req['plate_number'] = $plateNumber;
         $req['sign'] = Sign::make($req, $this->config['key'], $this->config['sign_type']);
