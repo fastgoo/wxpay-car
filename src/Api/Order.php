@@ -65,9 +65,11 @@ class Order
             'end_time' => $params['end_time'],
             'charging_time' => $params['charging_time'],
             'plate_number' => $params['plate_number'],
-            'car_type' => $params['car_type'],
             'parking_name' => $params['parking_name'],
         ];
+        if (!empty($params['car_type'])) {
+            $sceneInfo['car_type'] = $params['car_type'];
+        }
         if (!empty($params['space_number'])) {
             $sceneInfo['openid'] = $params['openid'];
             $sceneInfo['space_number'] = $params['space_number'];
